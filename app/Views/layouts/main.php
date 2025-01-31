@@ -14,12 +14,41 @@
     <title><?= isset($title) ? $title : 'Phone Book Pro' ?></title>
     <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
 </head>
-<body>
+<body class="min-vh-100 d-flex flex-column justify-content-between">
 
     <!-- Header -->
     <header>
-        <div class="container"></div>    
-        <h1>My Website</h1>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown link
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
     </header>
 
     <!-- Main Content -->
@@ -30,11 +59,60 @@
     </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 My Website</p>
-        </div> 
-    </footer>
+    <div class="border-top bg-light">
+        <footer class="pt-5 container">
+            <div class="row">
+            <div class="col-2">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+            </div>
+
+            <div class="col-2">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+            </div>
+
+            <div class="col-2">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+            </div>
+
+            <div class="col-4 offset-1">
+                <form>
+                <h5>Subscribe to our newsletter</h5>
+                <p>Monthly digest of whats new and exciting from us.</p>
+                <div class="d-flex w-100 gap-2">
+                    <label for="newsletter1" class="visually-hidden">Email address</label>
+                    <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                    <button class="btn btn-primary" type="button">Subscribe</button>
+                </div>
+                </form>
+            </div>
+            </div>
+
+            <div class="d-flex justify-content-between py-2 mt-4 border-top">
+            <p>&copy; 2021 Company, Inc. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
 
 </body>
 </html>

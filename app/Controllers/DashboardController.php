@@ -27,10 +27,8 @@ class DashboardController extends Controller
 
         $user = $findUserHandler->handle($findUserQuery);
 
-        echo '<pre>';
-        var_dump($user);
-        echo '</pre>';
-        exit();
-        return view('dashboard');
+        return view('dashboard' , [
+            'user' => $user
+        ]);
     }
 }
