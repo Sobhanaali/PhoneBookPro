@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Commands\CreateUserCommand;
 use App\Commands\CreateUserHandler;
+use App\Queries\LoginUserHandler;
+use App\Queries\LoginUserQuery;
 use App\Repositories\UserRepository;
 use CodeIgniter\Controller;
 use CodeIgniter\I18n\Time;
@@ -24,22 +26,29 @@ class AuthController extends Controller
 
     public function loginPost()
     {
-        echo 'login Successfully';
-        // $mobile = $this->request->getPost('mobile');
-        // $password = $this->request->getPost('password');
+        $findUserQuery = new LoginUserQuery(
+            $this->request->getPost('username_or_mobile'),
+            $this->request->getPost('password')
+        );
 
-        // $user = $this->userModel->validateUser($mobile, $password);
+        if (!$findUserQuery->validate()){
+            return redirect()->to('/login')->withInput();
+        }
 
-        // if ($user) {
-        //     session()->set([
-        //         'user_id' => $user['id'],
-        //         'mobile' => $user['mobile'],
-        //         'is_logged_in' => true
-        //     ]);
-        //     return redirect()->to('/dashboard');
-        // } else {
-        //     return redirect()->back()->with('error', 'شماره موبایل یا پسورد اشتباه است.');
-        // }
+        $findQueryHandler = new LoginUserHandler($this->userRepository);
+        $user = $findQueryHandler->handle($findUserQuery);
+        
+        if ($user) {
+            session()->set([
+                'user_id' => $user->id,
+                'username' => $user->username,
+                'mobile' => $user->mobile,
+                'is_logged_in' => true
+            ]);
+            return redirect()->to('/dashboard');
+        } else {
+            return redirect()->back()->with('loginError', 'Username or mobile is incorrect.');
+        }
     }
 
     public function register()

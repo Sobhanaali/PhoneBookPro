@@ -60,7 +60,6 @@ class CreateUserCommand
     public function validate()
     {
         $validation = \Config\Services::validation();
-        $userModel = new \App\Models\UserModel();
 
         $validation->setRules($this->validationRules);
 

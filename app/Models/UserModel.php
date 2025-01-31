@@ -28,28 +28,6 @@ class UserModel extends Model
     protected $createdField  = 'created_at'; 
     protected $updatedField  = 'updated_at'; 
     protected $deletedField  = 'deleted_at'; 
-
-    // Validation
-    // protected $validationRules = [
-    //     'username'      => 'required|min_length[3]|max_length[50]|is_unique[users.username]',
-    //     'first_name'    => 'required|min_length[3]|max_length[50]',
-    //     'last_name'     => 'required|min_length[3]|max_length[50]',
-    //     'mobile'        => 'required|is_unique[users.mobile]|min_length[10]|max_length[15]',
-    //     'password'      => 'required',
-    //     'confirm_password' => 'required|matches[password]',
-    // ];
-    
-    // protected $validationMessages = [
-    //     'username' => [
-    //         'is_unique' => 'این نام کاربری قبلاً ثبت شده است.',
-    //     ],
-    //     'mobile' => [
-    //         'is_unique' => 'این شماره موبایل قبلاً ثبت شده است.',
-    //     ],
-    //     'confirm_password' => [
-    //         'matches' => 'رمز عبور و تأیید رمز عبور مطابقت ندارند.',
-    //     ],
-    // ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
