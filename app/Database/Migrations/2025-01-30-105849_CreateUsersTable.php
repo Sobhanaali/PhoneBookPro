@@ -14,6 +14,16 @@ class CreateUsersTable extends Migration
                 'constraint' => 11,
                 'auto_increment' => true,
             ],
+            'username' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'unique' => true,
+            ],
+            'mobile' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'unique' => true,
+            ],
             'first_name' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
@@ -22,10 +32,17 @@ class CreateUsersTable extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'mobile' => [
+            'password' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
-                'unique' => true,
+            ],
+            'created_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ],
+            'updated_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
             ]
         ]);
         $this->forge->addPrimaryKey('id');

@@ -13,14 +13,13 @@ class UserModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     
-    protected $allowedFields    = ['first_name', 'last_name', 'mobile'];
+    protected $allowedFields    = ['username', 'mobile' , 'first_name', 'last_name', 'password'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 
     protected array $casts = [
-        'id' => 'int', 
-        'mobile' => 'string', 
+        'id' => 'int'
     ];
     
     // Dates
@@ -31,16 +30,26 @@ class UserModel extends Model
     protected $deletedField  = 'deleted_at'; 
 
     // Validation
-    protected $validationRules      = [
-        'first_name' => 'required|min_length[3]|max_length[50]',
-        'last_name'  => 'required|min_length[3]|max_length[50]',
-        'mobile'     => 'required|is_unique[users.mobile]|min_length[10]|max_length[15]',
-    ];
-    protected $validationMessages   = [
-        'mobile' => [
-            'is_unique' => 'این شماره موبایل قبلاً در سیستم ثبت شده است.',
-        ],
-    ];
+    // protected $validationRules = [
+    //     'username'      => 'required|min_length[3]|max_length[50]|is_unique[users.username]',
+    //     'first_name'    => 'required|min_length[3]|max_length[50]',
+    //     'last_name'     => 'required|min_length[3]|max_length[50]',
+    //     'mobile'        => 'required|is_unique[users.mobile]|min_length[10]|max_length[15]',
+    //     'password'      => 'required',
+    //     'confirm_password' => 'required|matches[password]',
+    // ];
+    
+    // protected $validationMessages = [
+    //     'username' => [
+    //         'is_unique' => 'این نام کاربری قبلاً ثبت شده است.',
+    //     ],
+    //     'mobile' => [
+    //         'is_unique' => 'این شماره موبایل قبلاً ثبت شده است.',
+    //     ],
+    //     'confirm_password' => [
+    //         'matches' => 'رمز عبور و تأیید رمز عبور مطابقت ندارند.',
+    //     ],
+    // ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
