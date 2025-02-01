@@ -113,6 +113,13 @@
             </div>
         </footer>
     </div>
-
+    <script>
+    $(document).ready(function () {
+        $(".edit-btn").click(function (e) {
+            e.preventDefault();
+            $(this).closest("tr").next("tr").toggleClass("d-none");
+        });
+    });
+</script>
 </body>
 </html>

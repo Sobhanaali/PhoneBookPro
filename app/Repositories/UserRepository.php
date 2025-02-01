@@ -88,4 +88,9 @@ class UserRepository implements Repository
 
         return $user;
     }
+
+    public function update($command)
+    {
+        
+    }
 }

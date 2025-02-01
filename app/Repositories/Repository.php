@@ -6,4 +6,5 @@ interface Repository
 {
     public function create($command);
     public function validate($command);
+    public function update($command);
 }

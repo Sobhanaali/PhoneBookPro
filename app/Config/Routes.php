@@ -18,3 +18,4 @@ $routes->post('/login' , 'AuthController::loginPost');
 $routes->get('/dashboard' , 'DashboardController::index');
 
 $routes->post('/contact/store' , 'ContactController::store');
+$routes->post('/contact/update' , 'ContactController::update');

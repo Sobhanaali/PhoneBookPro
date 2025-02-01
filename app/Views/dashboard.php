@@ -69,14 +69,32 @@
                             <b><?= $contact['mobile'] ?></b>
                         </td>
                         <td class="p-3">
-                            <a href="">Edit</a>
+                            <a href="" class="edit-btn">Edit</a>
                         </td>
                         <td class="p-3">
                             <a href="">Delete</a>
                         </td>
                     </tr>
-                    <tr>
-                        <form action=""></form>
+                    <tr class="d-none">
+                        <form action="<?= site_url('contact/update') ?>" method="post" class="p-4">
+                            <input type="hidden" name="id" value="<?= $contact['id'] ?>">
+                            <td class="p-3">
+                                <label class="form-label">fist name :</label>
+                                <input type="text" name="first_name" value="<?= $contact['first_name'] ?>" class="form-control">
+                            </td>
+                            <td class="p-3">
+                                <label class="form-label">last name :</label>
+                                <input type="text" name="last_name" value="<?= $contact['last_name'] ?>" class="form-control">
+                            </td>
+                            <td class="p-3">
+                                <label class="form-label">phone number :</label>
+                                <input type="text" name="mobile" value="<?= $contact['mobile'] ?>" class="form-control">
+                            </td>
+                            <td class="align-bottom p-3">
+                                <button type="submit" class="btn btn-primary px-2">UPDATE</button>
+                            </td>
+                            <td></td>
+                        </form>
                     </tr>
                 <?php } ?>
             </table>

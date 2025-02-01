@@ -60,4 +60,13 @@ class ContactRepository implements Repository
 
         return $contacts;
     }
+
+    public function update($command)
+    {
+        $this->contactModel->update($command->get('id') ,[
+            'first_name' => $command->get('first_name'),
+            'last_name' => $command->get('last_name'),
+            'mobile' => $command->get('mobile'),
+        ]);
+    }
 }
