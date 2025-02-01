@@ -2,9 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Commands\CreateUserCommand;
 use App\Models\UserModel;
-use App\Queries\FindUserQuery;
 use App\Queries\LoginUserQuery;
 
 class UserRepository implements Repository

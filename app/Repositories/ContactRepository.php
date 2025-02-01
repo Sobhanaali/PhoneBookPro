@@ -54,8 +54,10 @@ class ContactRepository implements Repository
         }
     }
 
-    public function find($query)
+    public function findAll($query)
     {
-        
+        $contacts = $this->contactModel->where('user_id' , $query->getId())->findAll();
+
+        return $contacts;
     }
 }

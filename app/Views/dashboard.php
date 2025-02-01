@@ -53,13 +53,33 @@
             </div>
         </form>
         <div>
-            <ul class="list-group list-group-flush block">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-                <li class="list-group-item">A fourth item</li>
-                <li class="list-group-item">And a fifth one</li>
-            </ul>
+            <table class="table table-striped m-0">
+                <?php foreach($contacts as $contact) { ?>
+                    <tr>
+                        <td class="p-3">
+                            First Name: 
+                            <b><?= $contact['first_name'] ?></b>
+                        </td>
+                        <td class="p-3">
+                            Last Name: 
+                            <b><?= $contact['last_name'] ?></b>
+                        </td>
+                        <td class="p-3">
+                            Phone Number: 
+                            <b><?= $contact['mobile'] ?></b>
+                        </td>
+                        <td class="p-3">
+                            <a href="">Edit</a>
+                        </td>
+                        <td class="p-3">
+                            <a href="">Delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <form action=""></form>
+                    </tr>
+                <?php } ?>
+            </table>
         </div>
     </div>
 <?= $this->endSection() ?>
