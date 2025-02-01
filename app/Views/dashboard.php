@@ -4,11 +4,14 @@
    
     <div class="border rounded my-5">
         <h3 class="border-bottom p-4 bg-light rounded-top">Hello <?= $user['first_name'] ?> <?= $user['last_name'] ?></h3>
-        <div class="d-flex justify-content-between p-4">
-            <h6 class="mb-2 text-body-secondary">Username: <?= $user['username'] ?></h6>
-            <h6 class="mb-2 text-body-secondary">Phone Number: <?= $user['mobile'] ?></h6>
-            <a href="#" class="">Edit information</a>
-            <a href="#" class="">Delete account</a>
+        <div class="d-flex justify-content-between p-4 align-items-center">
+            <h6 class="mb-0 text-body-secondary">Username: <?= $user['username'] ?></h6>
+            <h6 class="mb-0 text-body-secondary">Phone Number: <?= $user['mobile'] ?></h6>
+            <a href="<?= site_url('/user/edit/' . $user['id']) ?>" class="">Edit information</a>
+            <form action="<?= site_url('user/delete') ?>" method="post">
+                <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
             <a href="<?= site_url('') ?>" class="">Log out</a>
         </div>
     </div>

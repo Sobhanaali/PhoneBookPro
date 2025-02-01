@@ -91,6 +91,16 @@ class UserRepository implements Repository
 
     public function update($command)
     {
-        
+        $this->userModel->update($command->get('id') ,[
+            'username' => $command->get('username'),
+            'first_name' => $command->get('first_name'),
+            'last_name' => $command->get('last_name'),
+            'mobile' => $command->get('mobile'),
+        ]);
+    }
+
+    public function delete($command)
+    {
+        $this->userModel->delete($command->get('id'));
     }
 }
