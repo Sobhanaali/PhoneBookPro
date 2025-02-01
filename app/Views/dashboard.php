@@ -69,10 +69,13 @@
                             <b><?= $contact['mobile'] ?></b>
                         </td>
                         <td class="p-3">
-                            <a href="" class="edit-btn">Edit</a>
+                            <a href="" class="edit-btn btn btn-secondary">Edit</a>
                         </td>
                         <td class="p-3">
-                            <a href="">Delete</a>
+                            <form action="<?= site_url('contact/delete') ?>" method="post">
+                                <input type="hidden" name="id" value="<?= $contact['id'] ?>">
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
                         </td>
                     </tr>
                     <tr class="d-none">

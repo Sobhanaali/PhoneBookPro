@@ -44,8 +44,6 @@ class LoginUserQuery
             return false; 
         }
 
-        // $this->password = password_hash($this->password, PASSWORD_BCRYPT);
-
         return true;
     }
 }

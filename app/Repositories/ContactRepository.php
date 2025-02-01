@@ -69,4 +69,9 @@ class ContactRepository implements Repository
             'mobile' => $command->get('mobile'),
         ]);
     }
+
+    public function delete($command)
+    {
+        $this->contactModel->delete($command->get('id'));
+    }
 }

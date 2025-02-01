@@ -2,10 +2,8 @@
 
 namespace App\Controllers;
 
-use APP\Commands\CreateCommand;
+use App\Commands\Command;
 use App\Commands\CreateHandler;
-use App\Commands\CreateUserCommand;
-use App\Commands\CreateUserHandler;
 use App\Queries\LoginUserHandler;
 use App\Queries\LoginUserQuery;
 use App\Repositories\UserRepository;
@@ -60,7 +58,7 @@ class AuthController extends Controller
 
     public function registerPost()
     {
-        $createCommand =  new CreateCommand([
+        $createCommand =  new Command([
             'username' => $this->request->getPost('username'),
             'mobile' => $this->request->getPost('mobile'),
             'first_name' => $this->request->getPost('first_name'),

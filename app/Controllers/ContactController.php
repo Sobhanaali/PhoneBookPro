@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use APP\Commands\CreateCommand;
+use App\Commands\Command;
 use App\Commands\CreateHandler;
-use App\Commands\UpdateCommand;
+use App\Commands\DeleteHandler;
 use App\Commands\UpdateHandler;
 use App\Repositories\ContactRepository;
 use CodeIgniter\Controller;
@@ -20,7 +20,7 @@ class ContactController extends Controller
 
     public function store()
     {
-        $createCommand = new CreateCommand([
+        $createCommand = new Command([
             'user_id' => $this->request->getPost('user_id'),
             'first_name' => $this->request->getPost('first_name'),
             'last_name' => $this->request->getPost('last_name'),
@@ -38,7 +38,7 @@ class ContactController extends Controller
 
     public function update()
     {
-        $updateCommand = new UpdateCommand([
+        $updateCommand = new Command([
             'id' => $this->request->getPost('id'),
             'first_name' => $this->request->getPost('first_name'),
             'last_name' => $this->request->getPost('last_name'),
@@ -49,5 +49,16 @@ class ContactController extends Controller
         
         return redirect()->to('/dashboard');
         
+    }
+
+    public function delete()
+    {
+        $deleteCommand = new Command([
+            'id' => $this->request->getPost('id')
+        ]);
+        $deleteHandler = new DeleteHandler($this->contactRepository);
+        $deleteHandler->handle($deleteCommand);
+
+        return redirect()->to('/dashboard');
     }
 }
