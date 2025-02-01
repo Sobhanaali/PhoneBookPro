@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Queries\FindHandler;
+use App\Queries\FindQuery;
 use App\Queries\FindUserHandler;
 use App\Queries\FindUserQuery;
 use App\Repositories\UserRepository;
@@ -21,11 +23,10 @@ class DashboardController extends Controller
     {
         $id = session()->get('user_id');
 
+        $findQuery = new FindQuery($id);
+        $findHandler = new FindHandler($this->userRepository);
 
-        $findUserQuery = new FindUserQuery($id);
-        $findUserHandler = new FindUserHandler($this->userRepository);
-
-        $user = $findUserHandler->handle($findUserQuery);
+        $user = $findHandler->handle($findQuery);
 
         return view('dashboard' , [
             'user' => $user

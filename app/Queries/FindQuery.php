@@ -2,7 +2,7 @@
 
 namespace App\Queries;
 
-class FindUserQuery
+class FindQuery
 {
     private $id;
 
