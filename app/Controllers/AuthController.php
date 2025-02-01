@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use APP\Commands\CreateCommand;
+use App\Commands\CreateHandler;
 use App\Commands\CreateUserCommand;
 use App\Commands\CreateUserHandler;
 use App\Queries\LoginUserHandler;
@@ -58,21 +60,20 @@ class AuthController extends Controller
 
     public function registerPost()
     {
-       $createUserCommand = new CreateUserCommand(
-            $this->request->getPost('username'),
-            $this->request->getPost('mobile'),
-            $this->request->getPost('first_name'),
-            $this->request->getPost('last_name'),
-            $this->request->getPost('password'),
-            $this->request->getPost('confirm_password')
-       );
+        $createCommand =  new CreateCommand([
+            'username' => $this->request->getPost('username'),
+            'mobile' => $this->request->getPost('mobile'),
+            'first_name' => $this->request->getPost('first_name'),
+            'last_name' => $this->request->getPost('last_name'),
+            'password' => $this->request->getPost('password'),
+            'confirm_password' => $this->request->getPost('confirm_password'),
+        ]);
 
-       if (!$createUserCommand->validate()){
-            return redirect()->back()->withInput();
-       }
-
-       $createUserHandler = new CreateUserHandler($this->userRepository);
-       $createUserHandler->handle($createUserCommand);
+        $createHandler = new CreateHandler($this->userRepository);
+        
+        if(!$createHandler->handle($createCommand)){
+            return redirect()->to('/register')->withInput();
+        }
 
         return redirect()->to('/login');
     }

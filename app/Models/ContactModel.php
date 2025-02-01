@@ -17,12 +17,6 @@ class ContactModel extends Model
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
-
-    protected array $casts = [
-        'id' => 'int',  
-        'user_id' => 'int', 
-        'mobile' => 'string',  
-    ];
     
     // Dates
     protected $useTimestamps = true; 
@@ -31,21 +25,6 @@ class ContactModel extends Model
     protected $updatedField  = 'updated_at';  
     protected $deletedField  = 'deleted_at'; 
 
-    // Validation
-    protected $validationRules      = [
-        'user_id'   => 'required|integer|exists[users.id]',
-        'first_name' => 'required|min_length[3]|max_length[50]',
-        'last_name'  => 'required|min_length[3]|max_length[50]',
-        'mobile'     => 'required|is_unique[contacts.mobile]|min_length[10]|max_length[15]',
-    ];
-    protected $validationMessages   = [
-        'user_id' => [
-            'exists' => 'کاربر با این شناسه موجود نیست.',
-        ],
-        'mobile' => [
-            'is_unique' => 'این شماره موبایل قبلاً در سیستم ثبت شده است.',
-        ],
-    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
